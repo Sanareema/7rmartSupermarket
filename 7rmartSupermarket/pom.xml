@@ -25,5 +25,10 @@
     		<version>5.2.3</version>
     		<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.obsqura</groupId>
+			<artifactId>TestNGProject</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
   </dependencies>
 </project>
