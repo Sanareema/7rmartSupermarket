@@ -10,12 +10,8 @@ import utilities.ExcelUtility;
 
 public class LoginTest extends Base {
 	
-	@Test
+	@Test(retryAnalyzer=retry.Retry.class)
 	public void verifyValidUserNameValidPwd() throws IOException {
-		
-		//String username = "admin";
-		//String password = "admin";
-		
 		LoginPage loginpage = new LoginPage(driver);
 		String username = ExcelUtility.getStringData(1,0,"supermarketlogin");
 		String password = ExcelUtility.getStringData(1,1,"supermarketlogin");
