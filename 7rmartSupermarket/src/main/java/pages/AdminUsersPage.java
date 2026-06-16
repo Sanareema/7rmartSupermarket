@@ -8,9 +8,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.PageUtility;
+
 public class AdminUsersPage {
 	
 	protected WebDriver driver;
+	PageUtility pageutility = new PageUtility();
+	JavascriptExecutor js = (JavascriptExecutor)driver;
 	@FindBy(xpath="(//section[@class='content']//child::a)[1]")	WebElement adminusersmoreinfo;
 	@FindBy(xpath="//a[@onclick='click_button(1)']") WebElement newbutton;
 	@FindBy(xpath="//input[@id='username']") WebElement username;
@@ -24,12 +28,10 @@ public class AdminUsersPage {
 		PageFactory.initElements(driver, this);
 	}
 	public void clickAdminUsersMoreInfo() {
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", adminusersmoreinfo);
+		pageutility.javaScriptClick(driver, adminusersmoreinfo);
 	}
 	public void clickNewButton() {
-		Actions action=new Actions(driver);
-		action.click(newbutton).perform();
+		pageutility.clicks(driver, newbutton);
 	}
 	public void adminUserInfo(String user, String pwd, String text) {
 		username.sendKeys(user);

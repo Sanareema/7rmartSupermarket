@@ -2,7 +2,6 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -21,20 +20,16 @@ public class ManageNewsPage {
 		PageFactory.initElements(driver, this);
 	}
 	public void clickManageNewsMoreInfo() {
-		Actions action=new Actions(driver);
-		action.click(newsmoreinfo).perform();
+		newsmoreinfo.click();
 	}
 	public void clickNewButton() {
-		Actions action=new Actions(driver);
-		action.click(newbutton).perform();
+		newbutton.click();
 	}
 	public void newsFieldEntry(String text) {
-		Actions action=new Actions(driver);
-		action.click(newsfield).sendKeys(text).perform();
+		newsfield.sendKeys(text);
 	}
 	public void clickSave() {
-		Actions action=new Actions(driver);
-		action.click(savebutton).perform();
+		savebutton.click();
 	}
 	public boolean isAlertDisplayed() {
 		return alertview.isDisplayed();

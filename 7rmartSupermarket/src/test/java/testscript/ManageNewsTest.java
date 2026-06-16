@@ -25,7 +25,7 @@ public class ManageNewsTest extends Base{
 		managenews.newsFieldEntry("Soccer Fever 2026");
 		managenews.clickSave();
 		boolean alertview=managenews.isAlertDisplayed();
-		Assert.assertTrue(alertview); 
+		Assert.assertTrue(alertview);
 	}
 
 }
