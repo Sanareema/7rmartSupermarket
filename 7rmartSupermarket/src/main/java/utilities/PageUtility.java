@@ -48,22 +48,26 @@ public class PageUtility {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,450)", "");
 	}
-	public void javaScriptClick(WebDriver driver, WebElement element) {
+	public void javaScriptClickElement(WebDriver driver, WebElement element) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", element);
 	}
 	public void javaScriptSendKeys(WebDriver driver, WebElement element, String value) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("arguments[0].value='Reema';", element);
+		js.executeScript("arguments[0].value= '" + value + "';", element);
 	}
 	//scroll hw
-	public void javaScriptScrollUp(WebDriver driver, WebElement element, String value) {
+	public void javaScriptScrollUp(WebDriver driver) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,-350)","");
 	}
-	public void javaScriptScrollToWindowHeight(WebDriver driver, WebElement element, String value) {
+	public void javaScriptScrollToBottom(WebDriver driver) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,document.body.scrollHeight)","");
+	}
+	public void javaScriptScrollIntoView(WebDriver driver, WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView({block: 'center'});", element);
 	}
 	// alert
 	public void simpleAlert(WebDriver driver, WebElement element, String text) {
@@ -79,10 +83,10 @@ public class PageUtility {
 		//alert.accept();
 		alert.dismiss();
 	}
-	public void promptalert(WebDriver driver,WebElement element) {
+	public void promptalert(WebDriver driver,WebElement element, String text) {
 		element.click();
 		Alert alert = driver.switchTo().alert();
-		alert.sendKeys("Reema");
+		alert.sendKeys(text);
 		alert.accept();
 	}
 

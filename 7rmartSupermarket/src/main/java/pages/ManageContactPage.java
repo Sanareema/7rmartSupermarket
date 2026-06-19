@@ -1,12 +1,9 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
-
 import utilities.PageUtility;
 
 public class ManageContactPage {
@@ -28,13 +25,14 @@ public class ManageContactPage {
 		PageFactory.initElements(driver, this);
 	}
 	public void manageContact() {
-		managecontactmoreinfo.click();
+		pageutility.javaScriptClickElement(driver, managecontactmoreinfo);
 	}
 	public void editButton() {
-		pageutility.javaScriptClick(driver, editbutton);
+		pageutility.javaScriptClickElement(driver, editbutton);
 	}
 	public void phoneField(String phoneno) {
 		phone.clear();
+		pageutility.javaScriptScrollIntoView(driver, phone);
 		phone.sendKeys(phoneno);
 	}
 	public void emailField(String mail) {
@@ -54,7 +52,7 @@ public class ManageContactPage {
 		delchargelimit.sendKeys(chargelimit);
 	}
 	public void updateButton() {
-		updatebtn.click();
+		pageutility.javaScriptClickElement(driver, updatebtn);
 	}
 	public boolean isAlertDisplayed() {
 		return alertview.isDisplayed();

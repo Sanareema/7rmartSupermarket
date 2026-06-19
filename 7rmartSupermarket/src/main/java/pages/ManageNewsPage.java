@@ -1,14 +1,17 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
+
 public class ManageNewsPage {
 	
 	protected WebDriver driver;
-	
+	PageUtility pageutility= new PageUtility();
 	@FindBy(xpath="(//a[contains(@href,'list-news')])[1]") WebElement newsmoreinfo;
 	@FindBy(xpath="//a[@onclick='click_button(1)']") WebElement newbutton;
 	@FindBy(xpath="//textarea[@id='news' and @placeholder='Enter the news']") WebElement newsfield;
@@ -29,7 +32,7 @@ public class ManageNewsPage {
 		newsfield.sendKeys(text);
 	}
 	public void clickSave() {
-		savebutton.click();
+		pageutility.javaScriptClickElement(driver, savebutton);
 	}
 	public boolean isAlertDisplayed() {
 		return alertview.isDisplayed();

@@ -5,9 +5,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
+
 public class ManageFooterTextPage {
 	
 	protected WebDriver driver;
+	PageUtility pageutility= new PageUtility();
 	@FindBy(xpath="//div[@class='icon']//following-sibling::a[contains(@href,'list-footertext')]") WebElement footertextmoreinfo;
 	@FindBy(xpath="//a[contains(@href,'edit=1')]//child::i") WebElement action1;
 	@FindBy(css="textarea#content") WebElement address;
@@ -35,7 +38,7 @@ public class ManageFooterTextPage {
 		phone.sendKeys(phonenum);
 	}
 	public void clickUpdateButton() {
-		updatebutton.click();
+		pageutility.javaScriptClickElement(driver, updatebutton);
 	}
 	public boolean alertView() {
 		return alertview.isDisplayed();

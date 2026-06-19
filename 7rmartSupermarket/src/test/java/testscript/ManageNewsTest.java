@@ -8,13 +8,11 @@ import pages.ManageNewsPage;
 import utilities.ExcelUtility;
 
 public class ManageNewsTest extends Base{
-	@Test
+	@Test(retryAnalyzer=retry.Retry.class)
 	public void manageNewsTest() throws IOException {
-		
 		LoginPage loginpage = new LoginPage(driver);
 		String username = ExcelUtility.getStringData(1,0,"supermarketlogin");
 		String password = ExcelUtility.getStringData(1,1,"supermarketlogin");
-
 		loginpage.enterUsername(username);
 		loginpage.enterPassword(password);
 		loginpage.signIn();

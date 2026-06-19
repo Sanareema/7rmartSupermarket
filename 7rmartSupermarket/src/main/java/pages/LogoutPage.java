@@ -23,7 +23,7 @@ public class LogoutPage {
 		admin.click();
 	}
 	public void logout7rmart() {
-		pageutility.javaScriptClick(driver, logoutbutton);
+		pageutility.javaScriptClickElement(driver, logoutbutton);
 	}
 	public boolean isSigninBtnDisplayed() {
 		return signinbtn.isDisplayed();

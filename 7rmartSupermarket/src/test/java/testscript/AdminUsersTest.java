@@ -1,14 +1,11 @@
 package testscript;
 
 import java.io.IOException;
-
-import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import pages.AdminUsersPage;
 import pages.LoginPage;
-import pages.ManageNewsPage;
 import utilities.ExcelUtility;
+import utilities.FakerUtility;
 
 public class AdminUsersTest extends Base{
 	@Test
@@ -20,13 +17,14 @@ public class AdminUsersTest extends Base{
 		loginpage.enterUsername(username);
 		loginpage.enterPassword(password);
 		loginpage.signIn();
+		
+		FakerUtility fakerutility=new FakerUtility(); //apply retry to all faker utility using tests
+		String adminusername=fakerutility.creatARandomFirstName();
 			
 		AdminUsersPage adminusers = new AdminUsersPage(driver);
 		adminusers.clickAdminUsersMoreInfo();
 		adminusers.clickNewButton();
-		adminusers.adminUserInfo("starlight1", "starbright1", "Staff");
+		adminusers.adminUserInfo("reem", "reemstar", "Admin");
 		adminusers.clickSaveButton();
-		
-		
 		}
 }

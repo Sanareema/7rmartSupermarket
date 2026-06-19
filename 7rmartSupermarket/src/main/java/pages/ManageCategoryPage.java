@@ -27,7 +27,7 @@ public class ManageCategoryPage {
 		PageFactory.initElements(driver, this);
 	}
 	public void manageCategory() {
-		managecategorymoreinfo.click();
+		pageutility.javaScriptClickElement(driver, managecategorymoreinfo);
 	}
 	public void editButton() {
 		editbutton.click();
@@ -36,13 +36,13 @@ public class ManageCategoryPage {
 		categoryfield.sendKeys(text);
 	}
 	public void selectDiscount() {
-		selectdiscount.click();
+		pageutility.javaScriptClickElement(driver, selectdiscount);
 	}
 	public void chooseFile(String path) {
 		fileuploadutility.fileUploadUsingSendKeys(choosefilebtn,path);
 	}
 	public void saveButton() {
-		savebutton.click();
+		pageutility.javaScriptClickElement(driver, savebutton);
 	}
 	public boolean alertView() {
 		return alertview.isDisplayed();

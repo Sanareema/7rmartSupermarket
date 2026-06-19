@@ -17,7 +17,7 @@ public class AdminUsersPage {
 	JavascriptExecutor js = (JavascriptExecutor)driver;
 	@FindBy(xpath="(//section[@class='content']//child::a)[1]")	WebElement adminusersmoreinfo;
 	@FindBy(xpath="//a[@onclick='click_button(1)']") WebElement newbutton;
-	@FindBy(xpath="//input[@id='username']") WebElement username;
+	@FindBy(xpath="//input[@name='username']") WebElement username;
 	@FindBy(xpath="//input[@id='password']") WebElement password;
 	@FindBy(css="select#user_type") WebElement usertypedropdownfield;
 	@FindBy(xpath="(//button[@type='submit'])[2]") WebElement savebutton;
@@ -28,10 +28,10 @@ public class AdminUsersPage {
 		PageFactory.initElements(driver, this);
 	}
 	public void clickAdminUsersMoreInfo() {
-		pageutility.javaScriptClick(driver, adminusersmoreinfo);
+		pageutility.javaScriptClickElement(driver, adminusersmoreinfo);
 	}
 	public void clickNewButton() {
-		pageutility.clicks(driver, newbutton);
+		pageutility.javaScriptClickElement(driver, newbutton);
 	}
 	public void adminUserInfo(String user, String pwd, String text) {
 		username.sendKeys(user);
@@ -40,6 +40,6 @@ public class AdminUsersPage {
 		usertype.selectByVisibleText(text);
 	}
 	public void clickSaveButton() {
-		savebutton.click();
+		pageutility.javaScriptClickElement(driver, savebutton);
 	}
 }

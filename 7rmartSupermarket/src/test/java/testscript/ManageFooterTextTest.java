@@ -1,18 +1,15 @@
 package testscript;
 
 import java.io.IOException;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import pages.AdminUsersPage;
 import pages.LoginPage;
 import pages.ManageFooterTextPage;
 import utilities.ExcelUtility;
 
 public class ManageFooterTextTest extends Base{
-	@Test
-	public void adminUsersTest() throws IOException {
+	@Test(retryAnalyzer=retry.Retry.class)
+	public void manageFooterText() throws IOException {
 		LoginPage loginpage = new LoginPage(driver);
 		String username = ExcelUtility.getStringData(1,0,"supermarketlogin");
 		String password = ExcelUtility.getStringData(1,1,"supermarketlogin");
