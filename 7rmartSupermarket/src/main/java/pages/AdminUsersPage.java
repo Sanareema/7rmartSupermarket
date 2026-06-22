@@ -17,8 +17,8 @@ public class AdminUsersPage {
 	JavascriptExecutor js = (JavascriptExecutor)driver;
 	@FindBy(xpath="(//section[@class='content']//child::a)[1]")	WebElement adminusersmoreinfo;
 	@FindBy(xpath="//a[@onclick='click_button(1)']") WebElement newbutton;
-	@FindBy(xpath="//input[@name='username']") WebElement username;
-	@FindBy(xpath="//input[@id='password']") WebElement password;
+	@FindBy(xpath="//input[@name='username']") WebElement adminusername;
+	@FindBy(xpath="//input[@id='password']") WebElement adminpassword;
 	@FindBy(css="select#user_type") WebElement usertypedropdownfield;
 	@FindBy(xpath="(//button[@type='submit'])[2]") WebElement savebutton;
 	@FindBy(xpath="//div[contains(@class,'dismissible')]") WebElement alertview;
@@ -33,13 +33,18 @@ public class AdminUsersPage {
 	public void clickNewButton() {
 		pageutility.javaScriptClickElement(driver, newbutton);
 	}
-	public void adminUserInfo(String user, String pwd, String text) {
-		username.sendKeys(user);
-		password.sendKeys(pwd);
+	public void adminUserInfo(String user, String pwd) {
+		adminusername.sendKeys(user);
+		adminpassword.sendKeys(pwd);
+	}
+	public void selectUserType() {
 		Select usertype=new Select(usertypedropdownfield);
-		usertype.selectByVisibleText(text);
+		usertype.selectByIndex(1);
 	}
 	public void clickSaveButton() {
 		pageutility.javaScriptClickElement(driver, savebutton);
+	}
+	public boolean alertMessage() {
+		return alertview.isDisplayed();
 	}
 }

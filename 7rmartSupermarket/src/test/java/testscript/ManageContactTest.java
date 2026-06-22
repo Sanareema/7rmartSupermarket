@@ -8,7 +8,7 @@ import pages.ManageContactPage;
 import utilities.ExcelUtility;
 
 public class ManageContactTest extends Base {
-	@Test(retryAnalyzer=retry.Retry.class)
+	@Test(retryAnalyzer=retry.Retry.class, description= "validating manage contact test")
 	public void manageContactTest() throws IOException {
 		LoginPage loginpage = new LoginPage(driver);
 		String username = ExcelUtility.getStringData(1,0,"supermarketlogin");

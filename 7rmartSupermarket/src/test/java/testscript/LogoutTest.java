@@ -10,7 +10,7 @@ import pages.LogoutPage;
 import utilities.ExcelUtility;
 
 public class LogoutTest extends Base {
-	@Test
+	@Test(description = "Verifying valid logout functionality", groups = {"regression"})
 	public void verifyLogout() throws IOException {
 		String username = ExcelUtility.getStringData(1, 0, "supermarketlogin");
 		String password = ExcelUtility.getStringData(1, 1, "supermarketlogin");

@@ -6,10 +6,10 @@ public class FakerUtility {
 
 	Faker faker = new Faker();
 	
-	public String creatARandomFirstName() {
+	public String createARandomFirstName() {
 		return faker.name().firstName();
 	}
-	public String creatARandomLastName() {
+	public String createARandomLastName() {
 		return faker.name().lastName();
 	}
 	public String generateAddress() {
@@ -17,5 +17,8 @@ public class FakerUtility {
 	}
 	public String generateEmail() {
 		return faker.internet().emailAddress();
+	}
+	public String generateCellphoneNumber() {
+		return faker.phoneNumber().cellPhone();
 	}
 }

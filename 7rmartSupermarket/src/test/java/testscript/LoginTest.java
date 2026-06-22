@@ -10,7 +10,7 @@ import utilities.ExcelUtility;
 
 public class LoginTest extends Base {
 	
-	@Test(retryAnalyzer=retry.Retry.class)
+	@Test(description = "Verifying valid login functionality", groups = {"regression"})
 	public void verifyValidUserNameValidPwd() throws IOException {
 		LoginPage loginpage = new LoginPage(driver);
 		String username = ExcelUtility.getStringData(1,0,"supermarketlogin");

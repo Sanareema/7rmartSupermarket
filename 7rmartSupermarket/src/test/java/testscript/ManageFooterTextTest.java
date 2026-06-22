@@ -8,7 +8,7 @@ import pages.ManageFooterTextPage;
 import utilities.ExcelUtility;
 
 public class ManageFooterTextTest extends Base{
-	@Test(retryAnalyzer=retry.Retry.class)
+	@Test(retryAnalyzer=retry.Retry.class, description= "validating manage footer")
 	public void manageFooterText() throws IOException {
 		LoginPage loginpage = new LoginPage(driver);
 		String username = ExcelUtility.getStringData(1,0,"supermarketlogin");
