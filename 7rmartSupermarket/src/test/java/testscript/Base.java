@@ -24,8 +24,8 @@ public class Base {
 
 	@BeforeMethod(alwaysRun=true)//executes regardless of grouping in XML
 	@Parameters("browser")
-	public void browserInitialization(@Optional("Chrome") String browser) throws Exception {
-		if (browser.equalsIgnoreCase("Chrome")) {
+	public void browserInitialization(String browser) throws Exception {
+		if (browser.equalsIgnoreCase("Edge")) {
 			driver = new EdgeDriver();
 		} else if (browser.equalsIgnoreCase("Chrome")) {
 			driver = new ChromeDriver();
